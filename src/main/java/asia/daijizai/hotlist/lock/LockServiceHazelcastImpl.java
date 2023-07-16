@@ -5,9 +5,7 @@ import com.hazelcast.core.IMap;
 import org.springframework.boot.autoconfigure.hazelcast.HazelcastClientFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,31 +16,32 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Service
-public class LockServiceHazelcastImpl {
+public class LockServiceHazelcastImpl implements LockService{
     private HazelcastInstance client;
     private IMap map;
 
     public LockServiceHazelcastImpl(){
-        this((List)null);
+        this(null);
     }
 
     public LockServiceHazelcastImpl(List<String> addressList){
         ClientConfig clientConfig=new ClientConfig();
-        HazelcastClientFactory factory = new HazelcastClientFactory();
+        HazelcastClientFactory factory = new HazelcastClientFactory(clientConfig);
         this.client = factory.getHazelcastInstance();
         this.map=this.client.getMap("lock");
     }
 
+    @Override
     public boolean lock(String key,int timeoutInSecs){
         Object value = this.map.put(key, "1", (long) timeoutInSecs, TimeUnit.SECONDS);
         return value==null;
     }
-
+    @Override
     public boolean isLocked(String key){
         Object value = this.map.get(key);
         return value!=null;
     }
-
+    @Override
     public boolean unLock(String key){
         Object value = this.map.remove(key);
         return value!=null;
