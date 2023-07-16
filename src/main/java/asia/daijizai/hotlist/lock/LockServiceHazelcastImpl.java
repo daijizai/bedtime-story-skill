@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Service
-public class LockServiceHazelcastImpl {
+public class LockServiceHazelcastImpl implements LockService{
     private HazelcastInstance client;
     private IMap map;
 
@@ -31,16 +31,17 @@ public class LockServiceHazelcastImpl {
         this.map=this.client.getMap("lock");
     }
 
+    @Override
     public boolean lock(String key,int timeoutInSecs){
         Object value = this.map.put(key, "1", (long) timeoutInSecs, TimeUnit.SECONDS);
         return value==null;
     }
-
+    @Override
     public boolean isLocked(String key){
         Object value = this.map.get(key);
         return value!=null;
     }
-
+    @Override
     public boolean unLock(String key){
         Object value = this.map.remove(key);
         return value!=null;
