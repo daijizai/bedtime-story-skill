@@ -5,9 +5,7 @@ import com.hazelcast.core.IMap;
 import org.springframework.boot.autoconfigure.hazelcast.HazelcastClientFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,12 +21,12 @@ public class LockServiceHazelcastImpl {
     private IMap map;
 
     public LockServiceHazelcastImpl(){
-        this((List)null);
+        this(null);
     }
 
     public LockServiceHazelcastImpl(List<String> addressList){
         ClientConfig clientConfig=new ClientConfig();
-        HazelcastClientFactory factory = new HazelcastClientFactory();
+        HazelcastClientFactory factory = new HazelcastClientFactory(clientConfig);
         this.client = factory.getHazelcastInstance();
         this.map=this.client.getMap("lock");
     }
