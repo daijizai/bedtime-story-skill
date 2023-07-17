@@ -13,6 +13,7 @@ public interface LockService {
 
     public boolean lock(String key,int timeoutInSecs);
     public boolean isLocked(String key);
+    //解锁
     public boolean unLock(String key);
 
 }
