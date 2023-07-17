@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LockService {
     /**
-     * 加索
+     * 加锁
      * @param key
      * @param timeoutInSecs 过期时间
      * @return
