@@ -32,6 +32,7 @@ public class UserOrderProduct implements IFlowTask {
         try {
             log.info("业务代码-1");
             log.info("业务代码-2");
+            log.info("业务代码-3");
         }catch (Exception e){
             lockService.unLock(lockKey);
         }
