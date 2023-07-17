@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @description
  */
 @Slf4j
-@IFlowTaskKey(value = "",desc = "")
+@IFlowTaskKey(value = "settle_bank_channel_register",desc = "结算账户渠道进件")
 @Service(value = "")
 public class SettleBankChannelRegisterTask implements IFlowTask {
 
