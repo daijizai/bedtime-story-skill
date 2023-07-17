@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @description
  */
 @Slf4j
-@IFlowTaskKey(value = "",desc = "")
+@IFlowTaskKey(value = "get_video",desc = "获取视频")
 @Service(value = "")
 public class GetVideoTask implements IFlowTask {
 
