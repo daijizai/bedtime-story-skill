@@ -17,6 +17,6 @@ public class FoodTest {
     public void test(){
         Food food = new Food("apple","green apple","1");
         System.out.println(food);
-
+        food.eatFood(food);
     }
 }

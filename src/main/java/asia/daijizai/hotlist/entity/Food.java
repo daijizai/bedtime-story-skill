@@ -26,4 +26,12 @@ public class Food {
      * 价格
      */
     private String price;
+
+    /**
+     * 吃食物
+     * @param food 被吃的食物
+     */
+    public void eatFood(Food food){
+        System.out.println("I am eating "+food.name);
+    }
 }
