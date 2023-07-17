@@ -30,7 +30,7 @@ public class UserOrderProduct implements IFlowTask {
         String lockKey=flowBusinessNotify.getTaskDefinitionKey()+flowBusinessNotify.getFlowInstanceId();
         lockService.lock(lockKey,60);
         try {
-
+            log.info("业务代码-1");
         }catch (Exception e){
             lockService.unLock(lockKey);
         }
