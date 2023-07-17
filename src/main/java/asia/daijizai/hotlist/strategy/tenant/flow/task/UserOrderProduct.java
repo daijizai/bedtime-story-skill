@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @IFlowTaskKey(value = "user_order_product",desc = "用户订购产品")
-@Service(value = "")
+@Service
 public class UserOrderProduct implements IFlowTask {
 
     @Autowired
@@ -31,6 +31,7 @@ public class UserOrderProduct implements IFlowTask {
         lockService.lock(lockKey,60);
         try {
             log.info("业务代码-1");
+            log.info("业务代码-2");
         }catch (Exception e){
             lockService.unLock(lockKey);
         }
