@@ -1,4 +1,4 @@
-package asia.daijizai.hotlist.config;
+package asia.daijizai.hotlist.common.config;
 
 /**
  * @author daijizai

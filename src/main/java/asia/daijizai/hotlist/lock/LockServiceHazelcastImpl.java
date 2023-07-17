@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @description
  */
 
-@Service
+
 public class LockServiceHazelcastImpl implements LockService{
     private HazelcastInstance client;
     private IMap map;

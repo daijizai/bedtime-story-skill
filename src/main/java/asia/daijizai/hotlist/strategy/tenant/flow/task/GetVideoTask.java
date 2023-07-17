@@ -3,6 +3,7 @@ package asia.daijizai.hotlist.strategy.tenant.flow.task;
 import asia.daijizai.hotlist.entity.BizFrontSerial;
 import asia.daijizai.hotlist.entity.FlowBusinessNotify;
 import asia.daijizai.hotlist.handler.flow.SerialHandler;
+import asia.daijizai.hotlist.lock.LockService;
 import asia.daijizai.hotlist.lock.LockServiceHazelcastImpl;
 import asia.daijizai.hotlist.strategy.common.flow.IFlowTask;
 import asia.daijizai.hotlist.strategy.common.flow.IFlowTaskKey;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class GetVideoTask implements IFlowTask {
 
     @Autowired
-    private LockServiceHazelcastImpl lockService;
+    private LockService lockService;
 
     @Override
     public void dealTaskKey(FlowBusinessNotify flowBusinessNotify, BizFrontSerial bizFrontSerial) {

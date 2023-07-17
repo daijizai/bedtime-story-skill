@@ -1,12 +1,14 @@
 package asia.daijizai.hotlist.lock;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @author daijizai
  * @version 1.0
  * @date 2023/7/16 22:32
  * @description
  */
-
+@Service
 public interface LockService {
 
     public boolean lock(String key,int timeoutInSecs);
