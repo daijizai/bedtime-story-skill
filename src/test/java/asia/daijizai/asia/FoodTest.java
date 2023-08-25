@@ -18,5 +18,15 @@ public class FoodTest {
         Food food = new Food("apple","green apple","1");
         System.out.println(food);
         food.eatFood(food);
+        int a=100;
+        int b=101;
+        System.out.println(10086);
+        String ans = add(a, b);
+        System.out.println(ans);
+    }
+
+    private String add(int a,int b){
+        int res=a+b;
+        return "ans is "+res;
     }
 }
